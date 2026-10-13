@@ -64,7 +64,7 @@ fs.copyFileSync(path.join(root, "public/models/LICENSE-MakeHuman-CC0.md"), path.
 // 4. Page
 fs.writeFileSync(
   path.join(out, "index.html"),
-  `<title>Labo du héros MUE</title>
+  `<title>MUE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Chakra+Petch:wght@400;500;700&display=swap">

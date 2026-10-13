@@ -1,8 +1,8 @@
 /**
- * Point d'entrée de la version "artefact" autonome du Labo (hors Next.js) :
- * même composant que /labo, empaqueté par scripts/artifact/build-artifact.mjs.
+ * Point d'entrée de la version "artefact" autonome (hors Next.js) :
+ * le jeu complet, empaqueté par scripts/artifact/build-artifact.mjs.
  */
 import { createRoot } from "react-dom/client";
-import { LabClient } from "@/app/labo/LabClient";
+import { GameApp } from "@/game/GameApp";
 
-createRoot(document.getElementById("root")!).render(<LabClient />);
+createRoot(document.getElementById("root")!).render(<GameApp />);

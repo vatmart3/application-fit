@@ -45,11 +45,13 @@ interface Props {
   reducedMotion?: boolean;
   ref?: Ref<AvatarRenderer>;
   onClipChange?: (clip: ClipName) => void;
+  /** Appelé une fois le modèle chargé et monté. */
+  onReady?: () => void;
 }
 
 const SMILE_CLIPS: readonly ClipName[] = ["flex", "victory", "level_up"];
 
-export function HeroAvatar({ state, appearance, interactive = true, initialClip = "idle", reducedMotion, ref, onClipChange }: Props) {
+export function HeroAvatar({ state, appearance, interactive = true, initialClip = "idle", reducedMotion, ref, onClipChange, onReady }: Props) {
   const gltf = useHeroModel(appearance.base);
 
   // Clone indépendant (plusieurs avatars possibles : salle du clan).
@@ -145,6 +147,11 @@ export function HeroAvatar({ state, appearance, interactive = true, initialClip 
     return () => mixer.removeEventListener("finished", onFinished as never);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mixer]);
+
+  useEffect(() => {
+    onReady?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [root]);
 
   // Clip initial.
   useEffect(() => {
