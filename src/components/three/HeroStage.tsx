@@ -158,7 +158,7 @@ export function HeroStage({ children, classColor, quality, reducedMotion, focus 
     <Canvas
       shadows={q.shadows ? { type: THREE.PCFShadowMap } : false}
       dpr={dpr}
-      camera={{ position: [0.9, 1.35, 3.4], fov: 32, near: 0.05, far: 40 }}
+      camera={{ position: [0.9, 1.35, 3.4], fov: 32, near: 0.25, far: 30 }}
       gl={{ antialias: q.multisampling === 0, powerPreference: "high-performance", toneMapping: THREE.NoToneMapping }}
       onCreated={({ gl }) => {
         gl.outputColorSpace = THREE.SRGBColorSpace;

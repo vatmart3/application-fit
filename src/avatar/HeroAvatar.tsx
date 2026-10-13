@@ -10,7 +10,6 @@
  * - apparence (cheveux, barbe, tenue, couleurs) et rim light de classe
  */
 import { useFrame } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
 import { useEffect, useImperativeHandle, useMemo, useRef, type Ref } from "react";
 import * as THREE from "three";
 import { clone as cloneSkinned } from "three/examples/jsm/utils/SkeletonUtils.js";
@@ -23,8 +22,8 @@ import {
   type MuscleGroup,
   MESH,
   ONE_SHOT_CLIPS,
-  heroModelUrl,
 } from "./contract";
+import { preloadHeroModels, useHeroModel } from "./useHeroModel";
 import {
   clothMaterial,
   createAvatarUniforms,
@@ -51,7 +50,7 @@ interface Props {
 const SMILE_CLIPS: readonly ClipName[] = ["flex", "victory", "level_up"];
 
 export function HeroAvatar({ state, appearance, interactive = true, initialClip = "idle", reducedMotion, ref, onClipChange }: Props) {
-  const gltf = useGLTF(heroModelUrl(appearance.base), false, true);
+  const gltf = useHeroModel(appearance.base);
 
   // Clone indépendant (plusieurs avatars possibles : salle du clan).
   const { root, meshes, uniforms, mixer, actions, materials } = useMemo(() => {
@@ -296,5 +295,4 @@ export function HeroAvatar({ state, appearance, interactive = true, initialClip 
   );
 }
 
-useGLTF.preload(heroModelUrl("m"), false, true);
-useGLTF.preload(heroModelUrl("f"), false, true);
+preloadHeroModels();

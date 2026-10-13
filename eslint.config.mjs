@@ -7,6 +7,8 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Override default ignores of eslint-config-next.
   globalIgnores([
+    // Caches et builds générés (sources MakeHuman, artefact autonome).
+    ".cache/**",
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",

@@ -11,7 +11,8 @@
     "test": "vitest run",
     "character:fetch": "NODE_USE_ENV_PROXY=1 NODE_NO_WARNINGS=1 tsx scripts/character/fetch-makehuman.ts",
     "character:build": "tsx scripts/character/build-hero.ts",
-    "character": "npm run character:fetch && npm run character:build"
+    "character": "npm run character:fetch && npm run character:build",
+    "artifact:build": "node scripts/artifact/build-artifact.mjs"
   },
   "dependencies": {
     "@fontsource/bungee": "^5.3.0",
@@ -29,6 +30,7 @@
     "postprocessing": "^6.39.5",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "suspend-react": "^0.1.3",
     "three": "^0.186.1",
     "zustand": "^5.0.15"
   },
@@ -37,6 +39,7 @@
     "@gltf-transform/extensions": "^4.5.1",
     "@gltf-transform/functions": "^4.5.1",
     "@playwright/test": "^1.64.0",
+    "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/turbopack": "^4",
     "@types/howler": "^2.2.13",
     "@types/node": "^22.20.5",
@@ -44,6 +47,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/three": "^0.186.0",
+    "esbuild": "^0.28.2",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "meshoptimizer": "^1.3.0",

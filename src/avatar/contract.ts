@@ -172,4 +172,6 @@ export const MUSCLE_MASK_ATTRIBUTES = ["_MUSCLEA", "_MUSCLEB", "_MUSCLEC"] as co
 /** Genres de base : un GLB par morphologie de base (squelette ajusté). */
 export const BODY_BASES = ["m", "f"] as const;
 export type BodyBase = (typeof BODY_BASES)[number];
-export const heroModelUrl = (base: BodyBase) => `/models/hero-${base}.glb`;
+/** Dossier des modèles : "/models" dans l'app, relatif ("models") dans la version artefact autonome. */
+const MODEL_BASE = process.env.NEXT_PUBLIC_MODEL_BASE ?? "/models";
+export const heroModelUrl = (base: BodyBase) => `${MODEL_BASE}/hero-${base}.glb`;

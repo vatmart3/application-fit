@@ -72,9 +72,9 @@ export function shellSpecs(b: BodyBuild): ShellSpec[] {
       neckline(v, 0.075, 0.03) &&
       distShoulder(v) > 0.12 &&
       !(ax(v) > shoulderX * 0.7 && y(v) > chestY + (shoulderY - chestY) * 0.55 && z(v) < ref.chest[2] + 0.02),
-    place: offset(0.0085),
-    smooth: 4,
-    hem: 0.012,
+    place: offset(0.014),
+    smooth: 3,
+    hem: 0.018,
   };
   const tee: ShellSpec = {
     name: "Top_tee",
@@ -85,9 +85,9 @@ export function shellSpecs(b: BodyBuild): ShellSpec[] {
       (torsoW(v) + cat.shoulder[v] + cat.upperarm[v] * (tUpperArm(v) < 0.55 ? 1 : 0) > 0.5) &&
       cat.lowerarm[v] < 0.2 &&
       cat.neck[v] < 0.5,
-    place: offset(0.0095),
-    smooth: 4,
-    hem: 0.013,
+    place: offset(0.015),
+    smooth: 3,
+    hem: 0.019,
     visible: false,
   };
   const hoodie: ShellSpec = {
@@ -98,7 +98,7 @@ export function shellSpecs(b: BodyBuild): ShellSpec[] {
       neckline(v, 0.01, -0.01) &&
       cat.hand[v] < 0.3 &&
       (torsoW(v) + cat.shoulder[v] + cat.upperarm[v] + cat.neck[v] > 0.5 || (cat.lowerarm[v] > 0.3 && tForeArm(v) < 0.93)),
-    place: offset((v) => 0.016 + 0.004 * clamp01(cat.lowerarm[v])),
+    place: offset((v) => 0.019 + 0.004 * clamp01(cat.lowerarm[v])),
     smooth: 6,
     hem: 0.02,
     visible: false,
@@ -110,9 +110,9 @@ export function shellSpecs(b: BodyBuild): ShellSpec[] {
     name: "Bottom_shorts",
     material: "Bottom_shorts",
     include: shortsBase,
-    place: offset(0.0065),
+    place: offset(0.0105),
     smooth: 3,
-    hem: 0.01,
+    hem: 0.015,
   };
   const joggers: ShellSpec = {
     name: "Bottom_joggers",
@@ -121,7 +121,7 @@ export function shellSpecs(b: BodyBuild): ShellSpec[] {
       isBody(v) &&
       ((torsoW(v) > 0.45 && y(v) < pelvisY + 0.075) || cat.thigh[v] > 0.3 || (cat.shin[v] > 0.3 && tShin(v) < 0.9)) &&
       cat.foot[v] < 0.4,
-    place: offset((v) => 0.008 + 0.006 * clamp01(cat.shin[v] * smoothstep(0.5, 0.85, tShin(v)))),
+    place: offset((v) => 0.011 + 0.006 * clamp01(cat.shin[v] * smoothstep(0.5, 0.85, tShin(v)))),
     smooth: 5,
     hem: 0.015,
     visible: false,
