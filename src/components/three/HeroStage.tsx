@@ -156,7 +156,7 @@ export function HeroStage({ children, classColor, quality, reducedMotion, focus 
   const [dpr, setDpr] = useState(q.dpr[1]);
   return (
     <Canvas
-      shadows={q.shadows ? "soft" : false}
+      shadows={q.shadows}
       dpr={dpr}
       camera={{ position: [0.9, 1.35, 3.4], fov: 32, near: 0.05, far: 40 }}
       gl={{ antialias: q.multisampling === 0, powerPreference: "high-performance", toneMapping: THREE.NoToneMapping }}
